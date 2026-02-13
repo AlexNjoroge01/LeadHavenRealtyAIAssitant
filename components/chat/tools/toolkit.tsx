@@ -3,6 +3,17 @@ import { z } from "zod";
 import WeatherCard from "../ui/WeatherCard";
 import LeadCard from "../ui/LeadCard";
 
+// Define lead type
+type Lead = {
+  name: string;
+  email: string;
+  phone: string;
+  leadType: "buyer" | "seller" | "investor";
+  budget: string;
+  urgency: "high" | "medium" | "low";
+  notes: string;
+};
+
 // Define your toolkit
 export const myToolkit: Toolkit = {
   getWeather: {
@@ -46,7 +57,7 @@ export const myToolkit: Toolkit = {
       if (args.displayMode === "cards") {
         return (
           <div className="leads-container">
-            {result.leads.map((lead, index) => (
+            {result.leads.map((lead: Lead, index: number) => (
               <LeadCard key={index} {...lead} />
             ))}
           </div>
@@ -78,7 +89,7 @@ async function fetchWeatherAPI(location: string, unit: "celsius" | "fahrenheit")
 }
 
 async function fetchLeadsAPI(location: string, leadType: "buyer" | "seller" | "investor") {
-  const dummyLeads = [
+  const dummyLeads: Lead[] = [
     {
       name: "James Kamau",
       email: "james.kamau@email.com",
