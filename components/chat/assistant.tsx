@@ -4,7 +4,7 @@ import { useChatRuntime, AssistantChatTransport } from "@assistant-ui/react-ai-s
 import { ThreadList } from "@/components/assistant-ui/thread-list";
 import { Thread } from "@/components/assistant-ui/thread";
 import { myToolkit } from "./tools/toolkit";  
-import {lastAssistantMessageIsCompleteWithToolCalls } from "ai"
+import { lastAssistantMessageIsCompleteWithToolCalls } from "ai";
 
 const Assistantai = () => {
   const runtime = useChatRuntime({
@@ -71,16 +71,6 @@ const Assistantai = () => {
                   <p className="text-xs font-bold text-slate-400 uppercase">Automated Expert</p>
                 </div>
               </div>
-            </div>
-
-            {/* Quick Actions */}
-            <div className="flex gap-2">
-              <button className="px-4 py-2 text-xs font-bold bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition-all">
-                New Lead +
-              </button>
-              <button className="px-4 py-2 text-xs font-bold bg-white border border-slate-200 text-slate-600 rounded-lg hover:bg-slate-50 transition-all">
-                Settings
-              </button>
             </div>
           </div>
 
